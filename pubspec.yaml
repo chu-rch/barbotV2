@@ -16,6 +16,10 @@ flutter:
   plugin:
     androidPackage: io.github.edufolly.flutterbluetoothserial
     pluginClass: FlutterBluetoothSerialPlugin
+    uses-material-design: true
 
 environment:
   sdk: ">=2.0.0-a <3.0.0"
+
+assets:
+    - assets/Image/

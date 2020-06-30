@@ -120,12 +120,23 @@ class _ChatPage extends State<ChatPage> {
               ? Text('Connecting chat to ' + widget.server.name + '...')
               : isConnected
                   ? Text('Live chat with ' + widget.server.name)
-                  : Text('Chat log with ' + widget.server.name))),
+                  : Text('Chat log with ' + widget.server.name)),
+          bottom: TabBar(
+             tabs: [
+
+                Tab(icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.settings_remote)),
+             ],
+            unselectedLabelColor: Colors.black38,
+            indicatorColor: Colors.white,
+          ),),
       body: SafeArea(
         child:
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
+        TabBarView(
+          children: [
+            Column(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             children: <Widget>[
             Text(
               "CONTROLE LANCE",
               style: TextStyle(
@@ -415,8 +426,8 @@ class _ChatPage extends State<ChatPage> {
             )
           ],
         )*/
-      ),
-    );
+      ]),
+    ));
   }
 
   void _onDataReceived(Uint8List data) {

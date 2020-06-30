@@ -21,5 +21,3 @@ flutter:
 environment:
   sdk: ">=2.0.0-a <3.0.0"
 
-assets:
-    - assets/Image/

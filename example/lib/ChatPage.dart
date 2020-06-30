@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 
@@ -236,8 +235,7 @@ class _ChatPage extends State<ChatPage> {
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset(
-                                              'assets/Image/safe.png')
+                                          child: Image.asset('assets/Image/safe.png')
                                       ),
                                       Text("Alerte Feu",
                                           style: TextStyle(
@@ -258,8 +256,7 @@ class _ChatPage extends State<ChatPage> {
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset(
-                                              'assets/Image/eau.png')
+                                          child: Image.asset('assets/Image/eau.png')
                                       ),
                                       Text("Réservoir",
                                           style: TextStyle(
@@ -284,8 +281,7 @@ class _ChatPage extends State<ChatPage> {
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset(
-                                              'assets/Image/temp.png')
+                                          child: Image.asset('assets/Image/temp.png')
                                       ),
                                       Text("Température",
                                           style: TextStyle(

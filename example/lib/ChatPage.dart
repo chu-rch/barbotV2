@@ -3,6 +3,10 @@ import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
+
 
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
@@ -35,6 +39,8 @@ class _ChatPage extends State<ChatPage> {
   bool get isConnected => connection != null && connection.isConnected;
 
   bool isDisconnecting = false;
+
+  get geolocator => null;
 
   @override
   void initState() {
@@ -290,9 +296,85 @@ class _ChatPage extends State<ChatPage> {
                   )
                 ],
               ),
+            ),
+            Center(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            //color: Colors.red,
+                            child: Container(
+                              width: 170,
+                              height: 200,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Container(
+                                        padding: new EdgeInsets.all(15.0),
+                                        height: 110.0,
+                                        child: Image.asset('assets/Image/safe.png')
+                                    ),
+                                    Text("Alerte Feu",
+                                        style: TextStyle(
+                                          fontSize: 24.0,
+                                        )),
+                                  ]),
+                            ),
+                          ),
+                          Card(
+                            //color: Colors.red,
+                            child: Container(
+                              width: 170,
+                              height: 200,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Container(
+                                        padding: new EdgeInsets.all(15.0),
+                                        height: 110.0,
+                                        child: Image.asset('assets/Image/eau.png')
+                                    ),
+                                    Text("Réservoir",
+                                        style: TextStyle(
+                                          fontSize: 24.0,
+                                        )),
+                                  ]),
+                            ),
+                          ),
+                        ]),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Card(
+                            //color: Colors.red,
+                            child: Container(
+                              width: 170,
+                              height: 200,
+                              child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Container(
+                                        padding: new EdgeInsets.all(15.0),
+                                        height: 110.0,
+                                        child: Image.asset('assets/Image/temp.png')
+                                    ),
+                                    Text("Température",
+                                        style: TextStyle(
+                                          fontSize: 24.0,
+                                        )),
+                                  ]),
+                            ),
+                          ),
+                          ]),
+                  ]),
             )
           ],
-        )
+        ),
+
         /*Column(
           children: <Widget>[
             Flexible(
@@ -332,7 +414,7 @@ class _ChatPage extends State<ChatPage> {
               ],
             )
           ],
-        )*/,
+        )*/
       ),
     );
   }
@@ -411,4 +493,46 @@ class _ChatPage extends State<ChatPage> {
       }
     }
   }
+
+ /*
+
+  final Geolocator geolocator = Geolocator()
+    ..forceAndroidLocationManager;
+
+  Position _currentPosition;
+  String _currentAddress;
+
+  _getCurrentLocation() {
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+
+      _getAddressFromLatLng();
+    }).catchError((e) {
+      print(e);
+    });
+  }
+
+  _getAddressFromLatLng() async {
+    try {
+      List<Placemark> p = await geolocator.placemarkFromCoordinates(
+          _currentPosition.latitude, _currentPosition.longitude);
+
+      Placemark place = p[0];
+
+      setState(() {
+        _currentAddress =
+        "${place.locality}, ${place.postalCode}, ${place.country}";
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  */
 }
+
+

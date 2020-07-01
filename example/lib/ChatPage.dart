@@ -50,6 +50,11 @@ class _ChatPage extends State<ChatPage> {
     else return "Désactivé";
   }
 
+  Image getAlert(int alert){
+    if(alert == 1) return Image.asset('assets/Image/alert.png');
+    else return Image.asset('assets/Image/safe.png');
+  }
+
   @override
   void initState() {
     super.initState();
@@ -237,8 +242,7 @@ class _ChatPage extends State<ChatPage> {
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset(
-                                              'assets/Image/safe.png')),
+                                          child: getAlert(null)),
                                       Text("Alerte Feu",
                                           style: TextStyle(
                                             fontSize: 24.0,

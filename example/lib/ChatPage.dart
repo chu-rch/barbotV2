@@ -7,8 +7,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:holding_gesture/holding_gesture.dart';
 
-
-
 class ChatPage extends StatefulWidget {
   final BluetoothDevice server;
 
@@ -33,7 +31,7 @@ class _ChatPage extends State<ChatPage> {
   String _messageBuffer = '';
 
   final TextEditingController textEditingController =
-  new TextEditingController();
+      new TextEditingController();
   final ScrollController listScrollController = new ScrollController();
 
   bool isConnecting = true;
@@ -153,7 +151,7 @@ class _ChatPage extends State<ChatPage> {
             1,
             backspacesCounter > 0
                 ? _messageBuffer.substring(
-                0, _messageBuffer.length - backspacesCounter)
+                    0, _messageBuffer.length - backspacesCounter)
                 : _messageBuffer + dataString.substring(0, index),
           ),
         );
@@ -162,7 +160,7 @@ class _ChatPage extends State<ChatPage> {
     } else {
       _messageBuffer = (backspacesCounter > 0
           ? _messageBuffer.substring(
-          0, _messageBuffer.length - backspacesCounter)
+              0, _messageBuffer.length - backspacesCounter)
           : _messageBuffer + dataString);
     }
   }
@@ -192,7 +190,6 @@ class _ChatPage extends State<ChatPage> {
       }
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -228,14 +225,14 @@ class _ChatPage extends State<ChatPage> {
                                 width: 170,
                                 height: 200,
                                 child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset('assets/Image/safe.png')
-                                      ),
+                                          child: Image.asset(
+                                              'assets/Image/safe.png')),
                                       Text("Alerte Feu",
                                           style: TextStyle(
                                             fontSize: 24.0,
@@ -249,14 +246,14 @@ class _ChatPage extends State<ChatPage> {
                                 width: 170,
                                 height: 200,
                                 child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset('assets/Image/eau.png')
-                                      ),
+                                          child: Image.asset(
+                                              'assets/Image/eau.png')),
                                       Text("Réservoir",
                                           style: TextStyle(
                                             fontSize: 24.0,
@@ -274,14 +271,14 @@ class _ChatPage extends State<ChatPage> {
                                 width: 170,
                                 height: 200,
                                 child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment
-                                        .center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: Image.asset('assets/Image/temp.png')
-                                      ),
+                                          child: Image.asset(
+                                              'assets/Image/temp.png')),
                                       Text("Température",
                                           style: TextStyle(
                                             fontSize: 24.0,
@@ -301,7 +298,6 @@ class _ChatPage extends State<ChatPage> {
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
-
                     ),
                   ),
                   Container(
@@ -312,15 +308,16 @@ class _ChatPage extends State<ChatPage> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              HoldDetector( onHold: () => _sendMessage("SL"),
+                              HoldDetector(
+                                  onHold: () => _sendMessage("SL"),
                                   child: FloatingActionButton(
                                     heroTag: "btn1",
                                     onPressed: () => _sendMessage("SL"),
-                                    child: Center(child: Icon(Icons.arrow_back)),
+                                    child:
+                                        Center(child: Icon(Icons.arrow_back)),
                                     backgroundColor: Colors.red,
                                     focusColor: Colors.black26,
-                                  )
-                              ),
+                                  )),
                             ],
                           ),
                           Column(
@@ -329,39 +326,46 @@ class _ChatPage extends State<ChatPage> {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: FloatingActionButton(
-                                  heroTag: "btn2",
-                                  onPressed: () => _sendMessage("SU"),
-                                  child: Center(
-                                      child: Icon(Icons.arrow_upward)),
-                                  backgroundColor: Colors.blueGrey,
-                                  focusColor: Colors.black26,
-
+                                child: HoldDetector(
+                                  onHold: () => _sendMessage("SU"),
+                                  child: FloatingActionButton(
+                                    heroTag: "btn2",
+                                    onPressed: () => _sendMessage("SU"),
+                                    child:
+                                        Center(child: Icon(Icons.arrow_upward)),
+                                    backgroundColor: Colors.blueGrey,
+                                    focusColor: Colors.black26,
+                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: FloatingActionButton(
-                                  heroTag: "btn3",
-                                  onPressed: () => _sendMessage("SD"),
-                                  child: Center(
-                                      child: Icon(Icons.arrow_downward)),
-                                  backgroundColor: Colors.blueGrey,
-                                  focusColor: Colors.black26,
-
+                                child: HoldDetector(
+                                  onHold: () => _sendMessage("SD"),
+                                  child: FloatingActionButton(
+                                    heroTag: "btn3",
+                                    onPressed: () => _sendMessage("SD"),
+                                    child: Center(
+                                        child: Icon(Icons.arrow_downward)),
+                                    backgroundColor: Colors.blueGrey,
+                                    focusColor: Colors.black26,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                           Column(
                             children: <Widget>[
-                              FloatingActionButton(
-                                heroTag: "btn4",
-                                onPressed: () => _sendMessage("SR"),
-                                child: Center(child: Icon(Icons.arrow_forward)),
-                                backgroundColor: Colors.red,
-                                focusColor: Colors.black26,
-
+                              HoldDetector(
+                                onHold: () => _sendMessage("SR"),
+                                child: FloatingActionButton(
+                                  heroTag: "btn4",
+                                  onPressed: () => _sendMessage("SR"),
+                                  child:
+                                      Center(child: Icon(Icons.arrow_forward)),
+                                  backgroundColor: Colors.red,
+                                  focusColor: Colors.black26,
+                                ),
                               )
                             ],
                           ),
@@ -373,7 +377,6 @@ class _ChatPage extends State<ChatPage> {
                       fontStyle: FontStyle.normal,
                       fontWeight: FontWeight.bold,
                       fontSize: 25,
-
                     ),
                   ),
                   Container(
@@ -385,13 +388,15 @@ class _ChatPage extends State<ChatPage> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              FloatingActionButton(
-                                heroTag: "btn5",
-                                onPressed: () => _sendMessage("ML"),
-                                child: Center(child: Icon(Icons.arrow_back)),
-                                backgroundColor: Colors.blueGrey,
-                                focusColor: Colors.black26,
-
+                              HoldDetector(
+                                onHold: () => _sendMessage("ML"),
+                                child: FloatingActionButton(
+                                  heroTag: "btn5",
+                                  onPressed: () => _sendMessage("ML"),
+                                  child: Center(child: Icon(Icons.arrow_back)),
+                                  backgroundColor: Colors.blueGrey,
+                                  focusColor: Colors.black26,
+                                ),
                               )
                             ],
                           ),
@@ -401,39 +406,46 @@ class _ChatPage extends State<ChatPage> {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.all(20.0),
-                                child: FloatingActionButton(
-                                  heroTag: "btn6",
-                                  onPressed: () => _sendMessage("MU"),
-                                  child: Center(
-                                      child: Icon(Icons.arrow_upward)),
-                                  backgroundColor: Colors.red,
-                                  focusColor: Colors.black26,
-
+                                child: HoldDetector(
+                                  onHold: () => _sendMessage("MU"),
+                                  child: FloatingActionButton(
+                                    heroTag: "btn6",
+                                    onPressed: () => _sendMessage("MU"),
+                                    child:
+                                        Center(child: Icon(Icons.arrow_upward)),
+                                    backgroundColor: Colors.red,
+                                    focusColor: Colors.black26,
+                                  ),
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.all(10.0),
-                                child: FloatingActionButton(
-                                  heroTag: "btn7",
-                                  onPressed: () => _sendMessage("MD"),
-                                  child: Center(
-                                      child: Icon(Icons.arrow_downward)),
-                                  backgroundColor: Colors.red,
-                                  focusColor: Colors.black26,
-
+                                child: HoldDetector(
+                                  onHold: () => _sendMessage("MD"),
+                                  child: FloatingActionButton(
+                                    heroTag: "btn7",
+                                    onPressed: () => _sendMessage("MD"),
+                                    child: Center(
+                                        child: Icon(Icons.arrow_downward)),
+                                    backgroundColor: Colors.red,
+                                    focusColor: Colors.black26,
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                           Column(
                             children: <Widget>[
-                              FloatingActionButton(
-                                heroTag: "btn8",
-                                onPressed: () => _sendMessage("MR"),
-                                child: Center(child: Icon(Icons.arrow_forward)),
-                                backgroundColor: Colors.blueGrey,
-                                focusColor: Colors.black26,
-
+                              HoldDetector(
+                                onHold: () => _sendMessage("MR"),
+                                child: FloatingActionButton(
+                                  heroTag: "btn8",
+                                  onPressed: () => _sendMessage("MR"),
+                                  child:
+                                      Center(child: Icon(Icons.arrow_forward)),
+                                  backgroundColor: Colors.blueGrey,
+                                  focusColor: Colors.black26,
+                                ),
                               )
                             ],
                           ),
@@ -443,28 +455,41 @@ class _ChatPage extends State<ChatPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
-                        FloatingActionButton(
-                          heroTag: "btn9",
-                          onPressed: () => _sendMessage("W"),
-                          child: Center(child: Text("EAU")),
+                        HoldDetector(
+                          onHold: () => _sendMessage("W"),
+                          child: FloatingActionButton(
+                            heroTag: "btn9",
+                            onPressed: () => _sendMessage("W"),
+                            child: Center(child: Text("EAU")),
+                          ),
                         ),
-                        FloatingActionButton(
-                          heroTag: "btn10",
-                          onPressed: () => _sendMessage("H"),
-                          backgroundColor: Colors.red,
-                          child: Center(child: Icon(Icons.volume_up),),
+                        HoldDetector(
+                          onHold: () => _sendMessage("H"),
+                          child: FloatingActionButton(
+                            heroTag: "btn10",
+                            onPressed: () => _sendMessage("H"),
+                            backgroundColor: Colors.red,
+                            child: Center(
+                              child: Icon(Icons.volume_up),
+                            ),
+                          ),
                         ),
-                        FloatingActionButton(
-                          heroTag: "btn11",
-                          onPressed: () => _sendMessage("ST"),
-                          child: Center(child: Text("Start")),
+                        HoldDetector(
+                          onHold: () => _sendMessage("ST"),
+                          child: FloatingActionButton(
+                            heroTag: "btn11",
+                            onPressed: () => _sendMessage("ST"),
+                            child: Center(child: Text("Start")),
+                          ),
                         ),
-                        FloatingActionButton(
-                          heroTag: "btn12",
-                          onPressed: () => _sendMessage("SP"),
-                          backgroundColor: Colors.red,
-                          child: Center(child: Text("Stop")),
-                        )
+                        HoldDetector(
+                            onHold: () => _sendMessage("SP"),
+                            child: FloatingActionButton(
+                              heroTag: "btn12",
+                              onPressed: () => _sendMessage("SP"),
+                              backgroundColor: Colors.red,
+                              child: Center(child: Text("Stop")),
+                            )),
                       ],
                     ),
                   )
@@ -475,7 +500,6 @@ class _ChatPage extends State<ChatPage> {
         ),
       ),
     );
-
 
     /*
 
@@ -517,6 +541,4 @@ class _ChatPage extends State<ChatPage> {
 
   */
   }
-
-
 }

@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bluetooth_serial/flutter_bluetooth_serial.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
-
-
+import 'package:holding_gesture/holding_gesture.dart';
 
 
 
@@ -313,13 +312,15 @@ class _ChatPage extends State<ChatPage> {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              FloatingActionButton(
-                                heroTag: "btn1",
-                                onPressed: () => _sendMessage("SL"),
-                                child: Center(child: Icon(Icons.arrow_back)),
-                                backgroundColor: Colors.red,
-                                focusColor: Colors.black26,
-                              )
+                              HoldDetector( onHold: () => _sendMessage("SL"),
+                                  child: FloatingActionButton(
+                                    heroTag: "btn1",
+                                    onPressed: () => _sendMessage("SL"),
+                                    child: Center(child: Icon(Icons.arrow_back)),
+                                    backgroundColor: Colors.red,
+                                    focusColor: Colors.black26,
+                                  )
+                              ),
                             ],
                           ),
                           Column(

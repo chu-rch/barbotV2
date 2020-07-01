@@ -88,7 +88,7 @@ class _MainPage extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Bluetooth Serial'),
+        title: const Text('BARBOT : le robot pompier'),
       ),
       body: Container(
         child: ListView(

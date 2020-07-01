@@ -284,7 +284,7 @@ class _ChatPage extends State<ChatPage> {
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
                                           child: Image.asset(
-                                              'assets/Image/manual.png')),
+                                              'assets/Image/manual.jpg')),
                                       Text("Mode manuel",
                                           style: TextStyle(
                                             fontSize: 24.0,

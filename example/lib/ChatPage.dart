@@ -46,8 +46,8 @@ class _ChatPage extends State<ChatPage> {
 
   bool modeManuel = false;
   String getMM(bool mm){
-    if(mm = true) Text("Activé");
-    else Text("Désactivé");
+    if(mm = true) return "Activé";
+    else return "Désactivé";
   }
 
   @override

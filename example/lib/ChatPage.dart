@@ -44,6 +44,12 @@ class _ChatPage extends State<ChatPage> {
 
   get appBar => null;
 
+  bool modeManuel = false;
+  String getMM(bool mm){
+    if(mm = true) Text("Activé");
+    else Text("Désactivé");
+  }
+
   @override
   void initState() {
     super.initState();
@@ -278,11 +284,12 @@ class _ChatPage extends State<ChatPage> {
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
                                           child: Image.asset(
-                                              'assets/Image/temp.png')),
-                                      Text("Température",
+                                              'assets/Image/manual.png')),
+                                      Text("Mode manuel",
                                           style: TextStyle(
                                             fontSize: 24.0,
                                           )),
+                                      Text(getMM(modeManuel))
                                     ]),
                               ),
                             ),
@@ -478,7 +485,10 @@ class _ChatPage extends State<ChatPage> {
                           onHold: () => _sendMessage("ST"),
                           child: FloatingActionButton(
                             heroTag: "btn11",
-                            onPressed: () => _sendMessage("ST"),
+                            onPressed: () {
+                              _sendMessage("ST");
+                              modeManuel = true;
+                            },
                             child: Center(child: Text("Start")),
                           ),
                         ),
@@ -486,7 +496,10 @@ class _ChatPage extends State<ChatPage> {
                             onHold: () => _sendMessage("SP"),
                             child: FloatingActionButton(
                               heroTag: "btn12",
-                              onPressed: () => _sendMessage("SP"),
+                              onPressed: () {
+                                _sendMessage("SP");
+                                modeManuel = false;
+                              },
                               backgroundColor: Colors.red,
                               child: Center(child: Text("Stop")),
                             )),

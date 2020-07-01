@@ -89,6 +89,7 @@ class _MainPage extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BARBOT : le robot pompier'),
+        backgroundColor: Colors.red,
       ),
       body: Container(
         child: ListView(

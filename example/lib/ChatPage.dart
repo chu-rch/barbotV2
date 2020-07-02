@@ -45,15 +45,14 @@ class _ChatPage extends State<ChatPage> {
   get appBar => null;
 
   bool modeManuel = false;
+
+  Uint8List dataRecieved;
+
   String getMM(bool mm){
     if(mm = true) return "Activé";
     else return "Désactivé";
   }
 
-  Image getAlert(int alert){
-    if(alert == 1) return Image.asset('assets/Image/alert.png');
-    else return Image.asset('assets/Image/safe.png');
-  }
 
   @override
   void initState() {
@@ -242,12 +241,12 @@ class _ChatPage extends State<ChatPage> {
                                       Container(
                                           padding: new EdgeInsets.all(15.0),
                                           height: 110.0,
-                                          child: getAlert(null)),
-                                      Text("Alerte Feu",
+                                          //child: getAlert(null)),
+                                          child :Text("Alerte Feu",
                                           style: TextStyle(
                                             fontSize: 24.0,
                                           )),
-                                    ]),
+                                      )]),
                               ),
                             ),
                             Card(
